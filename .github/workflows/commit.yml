@@ -1,0 +1,14 @@
+name: commit
+
+on: workflow_dispatch
+
+jobs:
+  commit:
+    runs-on: ubuntu
+    steps:
+    - uses: actions/checkout@v2
+    - date > date.txt
+    - git add date.txt
+    - git commit -m 'Update date.txt'
+    - git push
+
