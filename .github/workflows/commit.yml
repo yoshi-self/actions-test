@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu
     steps:
     - uses: actions/checkout@v2
-    - date > date.txt
-    - git add date.txt
-    - git commit -m 'Update date.txt'
-    - git push
+    - run: date > date.txt
+    - run: git add date.txt
+    - run: git commit -m 'Update date.txt'
+    - run: git push
 
