@@ -12,6 +12,7 @@ jobs:
     - name: fails
       run: exit 1
   job-b:
+    needs: job-a
     runs-on: ubuntu-latest
     steps:
     - name: b
