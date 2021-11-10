@@ -16,19 +16,19 @@ jobs:
   job-always:
     needs: [job-a, job-a2]
     runs-on: ubuntu-latest
-    if: ${{ always }}
+    if: ${{ always() }}
     steps:
     - run: echo always
   job-succes:
     needs: [job-a, job-a2]
     runs-on: ubuntu-latest
-    if: ${{ success }}
+    if: ${{ success() }}
     steps:
     - run: echo success
   job-failure:
     needs: [job-a, job-a2]
     runs-on: ubuntu-latest
-    if: ${{ failure }}
+    if: ${{ failure() }}
     steps:
     - name: b
       run: echo failure
