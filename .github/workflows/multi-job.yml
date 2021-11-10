@@ -1,0 +1,18 @@
+name: multi-jog
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  job-a:
+    runs-on: ubuntu-latest
+    steps:
+    - name: a
+      run: echo 1
+    - name: fails
+      run: exit 1
+  job-b:
+    runs-on: ubuntu-latest
+    steps:
+    - name: b
+      run: echo 1
