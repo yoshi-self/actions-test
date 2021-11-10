@@ -7,19 +7,28 @@ jobs:
   job-a:
     runs-on: ubuntu-latest
     steps:
-    - name: a
-      run: echo 1
-    - name: fails
-      run: exit 1
+    - run: exit 1
   job-a2:
+    needs: job-a
     runs-on: ubuntu-latest
     steps:
-    - name: fails
-      run: exit 1
-  job-b:
-    needs: job-a
+    - run: exit 1
+  job-always:
+    needs: [job-a, job-a2]
     runs-on: ubuntu-latest
     if: ${{ always }}
     steps:
+    - run: echo always
+  job-succes:
+    needs: [job-a, job-a2]
+    runs-on: ubuntu-latest
+    if: ${{ success }}
+    steps:
+    - run: echo success
+  job-succes:
+    needs: [job-a, job-a2]
+    runs-on: ubuntu-latest
+    if: ${{ failure }}
+    steps:
     - name: b
-      run: echo 1
+      run: echo failure
