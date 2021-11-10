@@ -1,4 +1,4 @@
-name: multi-jog
+name: multi-job
 
 on:
   workflow_dispatch: {}
