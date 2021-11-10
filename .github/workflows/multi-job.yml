@@ -25,7 +25,7 @@ jobs:
     if: ${{ success }}
     steps:
     - run: echo success
-  job-succes:
+  job-failure:
     needs: [job-a, job-a2]
     runs-on: ubuntu-latest
     if: ${{ failure }}
